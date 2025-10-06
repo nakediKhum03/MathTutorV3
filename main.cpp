@@ -21,12 +21,16 @@ using namespace std;
 
 
 int main() {
+    const int MAX_ATTEMPTS = 3;
+    const int LEVEL_CHANGE = 10; //How much to increase the range when leveling up and down
+
+    enum MATH_TYPE {MT_ADD = 1, MT_SUB = 2, MT_MUL = 3, MT_DIV = 4};
 
     string userName;
     int userAnswer = 0;
     int leftNum = 0;
     int rightNum = 0;
-    int mathType = 0;
+    MATH_TYPE mathType = MT_ADD;
     char mathOperator ='?';
     int totalNum = 0;
     int tempNum = 0;
@@ -34,7 +38,7 @@ int main() {
     srand(time(0)); // Randomizing numbers
     leftNum = rand() % 9+1;
     rightNum = rand() % 9+1;
-    mathType = rand() % 4+1;
+    mathType = static_cast<MATH_TYPE>(rand() % 4 + 1);
 
     cout <<  "******************************************************************************************************" << endl; // Simply a header stating what this program is.
     cout <<  "*                               Welcome to the Simply Silly Math Tutor                               *" << endl;
@@ -57,11 +61,11 @@ int main() {
     cout << endl;
 
     switch (mathType) { // logic behind generating problems based of the math type
-        case 1:
+        case MT_ADD:
             mathOperator = '+';
             totalNum = leftNum + rightNum; // answer for addition
             break;
-        case 2:
+        case MT_SUB:
             mathOperator = '-';
                 if (rightNum>leftNum) { // making sure that we won't get a negative number when subtracting
                     tempNum = leftNum;
@@ -70,11 +74,11 @@ int main() {
         }
             totalNum = leftNum - rightNum; // answer for subtraction
             break;
-        case 3:
+        case MT_MUL:
             mathOperator = '*';
             totalNum = leftNum * rightNum; //answer for multiplication
             break;
-        case 4:
+        case MT_DIV:
             mathOperator = '/';
             totalNum = leftNum; // makes sure there is no fractions and correct answer
             leftNum = leftNum * rightNum; // makes sure there is no fractions
