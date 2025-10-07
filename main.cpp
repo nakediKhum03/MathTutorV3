@@ -13,9 +13,13 @@
 
 
 
-#include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <cctype>
+#include <vector>
+#include <iostream>
+#include <limits>
+#include <sstream>
 #include <string>
 using namespace std;
 
@@ -25,20 +29,17 @@ int main() {
     const int LEVEL_CHANGE = 10; //How much to increase the range when leveling up and down
 
     enum MATH_TYPE {MT_ADD = 1, MT_SUB = 2, MT_MUL = 3, MT_DIV = 4};
+    MATH_TYPE mathType = MT_ADD;
 
     string userName;
     int userAnswer = 0;
     int leftNum = 0;
     int rightNum = 0;
-    MATH_TYPE mathType = MT_ADD;
     char mathOperator ='?';
     int totalNum = 0;
     int tempNum = 0;
 
-    srand(time(0)); // Randomizing numbers
-    leftNum = rand() % 9+1;
-    rightNum = rand() % 9+1;
-    mathType = static_cast<MATH_TYPE>(rand() % 4 + 1);
+    string userInput = "?";
 
     cout <<  "******************************************************************************************************" << endl; // Simply a header stating what this program is.
     cout <<  "*                               Welcome to the Simply Silly Math Tutor                               *" << endl;
@@ -60,42 +61,86 @@ int main() {
     cout << "Welcome, " << userName << ", to the Simply Silly Math Tutor!" << endl; // prints and welcomes the user
     cout << endl;
 
-    switch (mathType) { // logic behind generating problems based of the math type
-        case MT_ADD:
-            mathOperator = '+';
-            totalNum = leftNum + rightNum; // answer for addition
-            break;
-        case MT_SUB:
-            mathOperator = '-';
+
+
+    do {
+        srand(time(0)); // Randomizing numbers
+        leftNum = rand() % 9+1;
+        rightNum = rand() % 9+1;
+        mathType = static_cast<MATH_TYPE>(rand() % 4 + 1);
+
+        switch (mathType) { // logic behind generating problems based of the math type
+            case MT_ADD:
+                mathOperator = '+';
+                totalNum = leftNum + rightNum; // answer for addition
+                break;
+            case MT_SUB:
+                mathOperator = '-';
                 if (rightNum>leftNum) { // making sure that we won't get a negative number when subtracting
                     tempNum = leftNum;
                     leftNum = rightNum;
                     rightNum = tempNum;
+                }
+                totalNum = leftNum - rightNum; // answer for subtraction
+                break;
+            case MT_MUL:
+                mathOperator = '*';
+                totalNum = leftNum * rightNum; //answer for multiplication
+                break;
+            case MT_DIV:
+                mathOperator = '/';
+                totalNum = leftNum; // makes sure there is no fractions and correct answer
+                leftNum = leftNum * rightNum; // makes sure there is no fractions
+                break;
+            default: // if math type is invalid and it ends the program
+                cout << "invaild math type!" << endl;
+                cout << "contact Jesse or Khumo for help" << endl;
+                return -1;
         }
-            totalNum = leftNum - rightNum; // answer for subtraction
-            break;
-        case MT_MUL:
-            mathOperator = '*';
-            totalNum = leftNum * rightNum; //answer for multiplication
-            break;
-        case MT_DIV:
-            mathOperator = '/';
-            totalNum = leftNum; // makes sure there is no fractions and correct answer
-            leftNum = leftNum * rightNum; // makes sure there is no fractions
-            break;
-        default: // if math type is invalid and it ends the program
-            cout << "invaild math type!" << endl;
-            cout << "contact Jesse or Khumo for help" << endl;
-        return -1;
-    }
-    cout << leftNum << " " << mathOperator << " " << rightNum << " = " << "?" << endl; // displays the question
-    cin >> userAnswer; // user inputs their answer
+
+        cout << leftNum << " " << mathOperator << " " << rightNum << " = " << "?" << endl; // displays the question
+
+        cin >> userAnswer; // user inputs their answer
         if (userAnswer == totalNum) { // logic to check if the user inputs the right answer
             cout << "Excellent Job Einstein!" << endl;
         } else {
             cout << "Incorrect sorry :(" << endl;
             cout << "The correct answer was " << totalNum << endl;
-    }
+        }
+
+        while (!(cin>>userAnswer)) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "\tiInvalid input!" << endl;
+            cout << "\tPlease enter a number:" << endl;
+        }
+
+        while (true) {
+            cout << "Do you want to continue (y=yes || n=no)? " << endl;
+            getline (cin, userInput);
+
+            for (int i = 0; i < userInput.size(); i++) {
+                userInput.at(i) = tolower(userInput.at(i));
+            }
+
+            if (userInput == "y" || userInput == "yes" ||
+                userInput == "n" || userInput == "no") {
+                break;
+            }
+            else {
+                cout << "Invalid input, please try again..." << endl;
+                cout << endl;
+            }
+        }
+
+
+    } while (userInput == "yes" || userInput == "y");
+
+
+
+
+
+
 
     cout << endl; // formating white space
     cout << "That's all folks!" << endl; // showing that this code can not check answer
