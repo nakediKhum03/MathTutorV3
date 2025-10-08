@@ -72,39 +72,48 @@ int main() {
         switch (mathType) { // logic behind generating problems based of the math type
             case MT_ADD:
                 mathOperator = '+';
-                totalNum = leftNum + rightNum; // answer for addition
-                break;
+            totalNum = leftNum + rightNum; // answer for addition
+            break;
             case MT_SUB:
                 mathOperator = '-';
-                if (rightNum>leftNum) { // making sure that we won't get a negative number when subtracting
-                    tempNum = leftNum;
-                    leftNum = rightNum;
-                    rightNum = tempNum;
-                }
-                totalNum = leftNum - rightNum; // answer for subtraction
-                break;
+            if (rightNum>leftNum) { // making sure that we won't get a negative number when subtracting
+                tempNum = leftNum;
+                leftNum = rightNum;
+                rightNum = tempNum;
+            }
+            totalNum = leftNum - rightNum; // answer for subtraction
+            break;
             case MT_MUL:
                 mathOperator = '*';
-                totalNum = leftNum * rightNum; //answer for multiplication
-                break;
+            totalNum = leftNum * rightNum; //answer for multiplication
+            break;
             case MT_DIV:
                 mathOperator = '/';
-                totalNum = leftNum; // makes sure there is no fractions and correct answer
-                leftNum = leftNum * rightNum; // makes sure there is no fractions
-                break;
+            totalNum = leftNum; // makes sure there is no fractions and correct answer
+            leftNum = leftNum * rightNum; // makes sure there is no fractions
+            break;
             default: // if math type is invalid and it ends the program
                 cout << "invaild math type!" << endl;
-                cout << "contact Jesse or Khumo for help" << endl;
-                return -1;
+            cout << "contact Jesse or Khumo for help" << endl;
+            return -1;
         }
 
         cout << leftNum << " " << mathOperator << " " << rightNum << " = " << "?" << endl; // displays the question
 
-        cin >> userAnswer; // user inputs their answer
-        if (userAnswer == totalNum) { // logic to check if the user inputs the right answer
-            cout << "Excellent Job Einstein!" << endl;
-        } else {
-            cout << "Incorrect sorry :(" << endl;
+        int i = 0;
+        for (i = 0; i < MAX_ATTEMPTS; i++) { //Lets them try agian 3 times
+            cin >> userAnswer; // user inputs their answer
+            if (userAnswer == totalNum) { // logic to check if the user inputs the right answer
+                cout << "Excellent Job Einstein!" << endl;
+                break;
+            } else {
+                cout << "Incorrect sorry :(" << endl;
+                if (i < 2) { // won't show try again after the last attempt
+                    cout << "Try Again" << endl;
+                }
+            }
+        }
+        if (userAnswer != totalNum) {
             cout << "The correct answer was " << totalNum << endl;
         }
 
