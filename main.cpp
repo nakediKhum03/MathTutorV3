@@ -38,6 +38,10 @@ int main() {
     char mathOperator ='?';
     int totalNum = 0;
     int tempNum = 0;
+    int totalCorrect = 0;
+    int totalIncorrect = 0;
+    int mathLevel = 1;
+    int currentRange = LEVEL_CHANGE;
 
     string userInput = "?";
 
@@ -65,8 +69,8 @@ int main() {
 
     do {
         srand(time(0)); // Randomizing numbers
-        leftNum = rand() % 9+1;
-        rightNum = rand() % 9+1;
+        leftNum = rand() % (currentRange - 1) + 1;
+        rightNum = rand() % (currentRange - 1) + 1;
         mathType = static_cast<MATH_TYPE>(rand() % 4 + 1);
 
         switch (mathType) { // logic behind generating problems based of the math type
@@ -100,9 +104,14 @@ int main() {
 
         cout << leftNum << " " << mathOperator << " " << rightNum << " = " << "?" << endl; // displays the question
 
-        int i = 0;
-        for (i = 0; i < MAX_ATTEMPTS; i++) { //Lets them try agian 3 times
-            cin >> userAnswer; // user inputs their answer
+        for (int i = 0; i < MAX_ATTEMPTS; i++) { //Lets them try agian 3 times
+            while (!(cin>>userAnswer)) {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "\tiInvalid input!" << endl;
+                cout << "\tPlease enter a number:" << endl;
+            }// end of while loop
+
             if (userAnswer == totalNum) { // logic to check if the user inputs the right answer
                 cout << "Excellent Job Einstein!" << endl;
                 break;
@@ -112,16 +121,10 @@ int main() {
                     cout << "Try Again" << endl;
                 }
             }
-        }
+        }// end of for loop
+
         if (userAnswer != totalNum) {
             cout << "The correct answer was " << totalNum << endl;
-        }
-
-        while (!(cin>>userAnswer)) {
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "\tiInvalid input!" << endl;
-            cout << "\tPlease enter a number:" << endl;
         }
 
         while (true) {
