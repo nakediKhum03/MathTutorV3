@@ -106,7 +106,7 @@ int main() {
             return -1;
         }
 
-        cout << leftNum << " " << mathOperator << " " << rightNum << " = " << "?" << endl; // displays the question
+        cout << "[Level #" << mathLevel << "] " << userName << ", what is " << leftNum << " " << mathOperator << " " << rightNum << " = " << "?" << endl; // displays the question
 
         for (int i = 0; i < MAX_ATTEMPTS; i++) { //Lets them try agian 3 times
             while (!(cin>>userAnswer)) {

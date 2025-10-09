@@ -23,22 +23,12 @@ Fun math facts:
 ******************************************************************************************************
 
 What is your name?
-Ethan
+Ethan Hoge
 
-Welcome, Ethan, to the Simply Silly Math Tutor!
+Welcome, Ethan Hoge, to the Simply Silly Math Tutor!
 
-9 + 7 = ?
-16
-
-Excellent Job Einstein!
-Do you want to continue (y=yes || n=no)?
-Invalid input, please try again...
-
-Do you want to continue (y=yes || n=no)?
-y
-
-6 - 2 = ?
-4
+[Level #1] Ethan Hoge, what is 8 * 3 = ?
+24
 
 Excellent Job Einstein!
 Do you want to continue (y=yes || n=no)?
@@ -47,8 +37,18 @@ Invalid input, please try again...
 Do you want to continue (y=yes || n=no)?
 y
 
-5 - 2 = ?
-3
+[Level #1] Ethan Hoge, what is 6 + 2 = ?
+8
+
+Excellent Job Einstein!
+Do you want to continue (y=yes || n=no)?
+Invalid input, please try again...
+
+Do you want to continue (y=yes || n=no)?
+y
+
+[Level #1] Ethan Hoge, what is 8 * 9 = ?
+72
 
 Excellent Job Einstein!
 You are currently on level 2
@@ -60,65 +60,79 @@ Invalid input, please try again...
 Do you want to continue (y=yes || n=no)?
 y
 
-7 * 3 = ?
+[Level #2] Ethan Hoge, what is 1 + 2 = ?
 3
 
-Incorrect sorry :(
-Try Again
-2 attempt/s left
-7
-
-Incorrect sorry :(
-Try Again
-1 attempt/s left
-6
-
-Incorrect sorry :(
-The correct answer was 21
-
+Excellent Job Einstein!
 Do you want to continue (y=yes || n=no)?
 Invalid input, please try again...
 
 Do you want to continue (y=yes || n=no)?
 y
 
-2 + 6 = ?
-5
-
-Incorrect sorry :(
-Try Again
-2 attempt/s left
-3
-
-Incorrect sorry :(
-Try Again
-1 attempt/s left
-4
-
-Incorrect sorry :(
-The correct answer was 8
-
-Do you want to continue (y=yes || n=no)?
-Invalid input, please try again...
-
-Do you want to continue (y=yes || n=no)?
-y
-
-19 - 6 = ?
-3
-
-Incorrect sorry :(
-Try Again
-2 attempt/s left
+[Level #2] Ethan Hoge, what is 5 * 3 = ?
 2
 
 Incorrect sorry :(
+2 attempt/s left.
 Try Again
-1 attempt/s left
+y
+
+        iInvalid input!
+        Please enter a number:
+2
+
+Incorrect sorry :(
+1 attempt/s left.
+Try Again
+2
+
+Incorrect sorry :(
+The correct answer was 15
+
+Do you want to continue (y=yes || n=no)?
+Invalid input, please try again...
+
+Do you want to continue (y=yes || n=no)?
+y
+
+[Level #2] Ethan Hoge, what is 16 + 11 = ?
 1
 
 Incorrect sorry :(
-The correct answer was 13
+2 attempt/s left.
+Try Again
+2
+
+Incorrect sorry :(
+1 attempt/s left.
+Try Again
+3
+
+Incorrect sorry :(
+The correct answer was 27
+
+Do you want to continue (y=yes || n=no)?
+Invalid input, please try again...
+
+Do you want to continue (y=yes || n=no)?
+y
+
+[Level #2] Ethan Hoge, what is 13 - 9 = ?
+1
+
+Incorrect sorry :(
+2 attempt/s left.
+Try Again
+2
+
+Incorrect sorry :(
+1 attempt/s left.
+Try Again
+3
+
+Incorrect sorry :(
+The correct answer was 4
 
 You are currently on level 1
 Your range is now from 1 to 10
