@@ -97,7 +97,7 @@ int main() {
             leftNum = leftNum * rightNum; // makes sure there is no fractions
             break;
             default: // if math type is invalid and it ends the program
-                cout << "invaild math type!" << endl;
+                cout << "Invaild math type!" << endl;
             cout << "contact Jesse or Khumo for help" << endl;
             return -1;
         }
@@ -114,6 +114,16 @@ int main() {
 
             if (userAnswer == totalNum) { // logic to check if the user inputs the right answer
                 cout << "Excellent Job Einstein!" << endl;
+                cout << endl;
+                totalCorrect++;
+                if (totalCorrect == 3) { // logic to increase the level if the user gets 3 correct in a row
+                    totalCorrect = 0;
+                    totalIncorrect = 0;
+                    currentRange = currentRange + LEVEL_CHANGE;
+                    mathLevel++;
+                    cout << "Congrats you've LEVELED UP to Level " << mathLevel << "!" << endl;
+                    cout << "Your numbers will now be inbetween 1 and " << currentRange << endl;
+                }
                 break;
             } else {
                 cout << "Incorrect sorry :(" << endl;
@@ -123,8 +133,20 @@ int main() {
             }
         }// end of for loop
 
-        if (userAnswer != totalNum) {
+        if (userAnswer != totalNum) { // If the user answer was incorrect
             cout << "The correct answer was " << totalNum << endl;
+            cout << endl;
+            totalIncorrect++;
+            if (totalIncorrect == 3) { // logic to decrease the level if the user gets 3 incorrect in a row
+                totalCorrect = 0;
+                totalIncorrect = 0;
+                if (mathLevel > 1) {
+                    currentRange = currentRange - LEVEL_CHANGE;
+                    mathLevel--;
+                    cout << "Sorry but you've just LEVELED DOWN to Level " << mathLevel << endl;
+                    cout << "Your numbers will now be inbetween 1 and " << currentRange << endl;
+                }
+            }
         }
 
         while (true) {
@@ -138,8 +160,7 @@ int main() {
             if (userInput == "y" || userInput == "yes" ||
                 userInput == "n" || userInput == "no") {
                 break;
-            }
-            else {
+            } else {
                 cout << "Invalid input, please try again..." << endl;
                 cout << endl;
             }
