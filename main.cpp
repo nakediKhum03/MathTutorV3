@@ -1,8 +1,8 @@
 /*
-* Title:       Math Tutor V2
-*Programer(s): Jesse Winberg & Khumo Nakedi
-*Date:         10/10/2025
-*Github URL:   https://github.com/Jwinb01/MathTutorv2
+* Title:       Math Tutor V3 UPDATE
+*Programer(s): Ethan Hoge & Khumo Nakedi UPDATE
+*Date:         10/10/2025 UPDATE DATE
+*Github URL:   UPDATE LINK
 *Description:  UPDATE THE DESCRIPTION A simple math tutor that will eventually turn into a big program to help students with their math
 *              randomized integer number with math types for the user to solve. The users name is read in the getline
 *              and given either an addition, subtraction, multiplication or division operation problem. The if-else
@@ -97,8 +97,8 @@ int main() {
             leftNum = leftNum * rightNum; // makes sure there is no fractions
             break;
             default: // if math type is invalid and it ends the program
-                cout << "Invaild math type!" << endl;
-            cout << "contact Jesse or Khumo for help" << endl;
+                cout << "invaild math type!" << endl;
+            cout << "contact Ethan or Khumo for help" << endl;
             return -1;
         }
 
@@ -112,18 +112,9 @@ int main() {
                 cout << "\tPlease enter a number:" << endl;
             }// end of while loop
 
-            if (userAnswer == totalNum) { // logic to check if the user inputs the right answer
-                cout << "Excellent Job Einstein!" << endl;
-                cout << endl;
+            if (userAnswer == totalNum) {  // logic to check if the user inputs the right answer
                 totalCorrect++;
-                if (totalCorrect == 3) { // logic to increase the level if the user gets 3 correct in a row
-                    totalCorrect = 0;
-                    totalIncorrect = 0;
-                    currentRange = currentRange + LEVEL_CHANGE;
-                    mathLevel++;
-                    cout << "Congrats you've LEVELED UP to Level " << mathLevel << "!" << endl;
-                    cout << "Your numbers will now be inbetween 1 and " << currentRange << endl;
-                }
+                cout << "Excellent Job Einstein!" << endl;
                 break;
             } else {
                 cout << "Incorrect sorry :(" << endl;
@@ -133,21 +124,30 @@ int main() {
             }
         }// end of for loop
 
-        if (userAnswer != totalNum) { // If the user answer was incorrect
+        if (userAnswer != totalNum) {
             cout << "The correct answer was " << totalNum << endl;
-            cout << endl;
             totalIncorrect++;
-            if (totalIncorrect == 3) { // logic to decrease the level if the user gets 3 incorrect in a row
-                totalCorrect = 0;
-                totalIncorrect = 0;
-                if (mathLevel > 1) {
-                    currentRange = currentRange - LEVEL_CHANGE;
-                    mathLevel--;
-                    cout << "Sorry but you've just LEVELED DOWN to Level " << mathLevel << endl;
-                    cout << "Your numbers will now be inbetween 1 and " << currentRange << endl;
-                }
-            }
+            cout << endl;
         }
+
+        if (totalCorrect ==3 ) {
+            mathLevel++;
+            totalCorrect = 0;
+            totalIncorrect = 0;
+            currentRange += LEVEL_CHANGE;
+            cout << "You are currently on level " << mathLevel << endl;
+            cout << "Your new range is now from 1 to " << currentRange << endl;
+            cout << endl;
+        }
+        else if (totalIncorrect ==3 && mathLevel >1) {
+            mathLevel--;
+            totalCorrect = 0;
+            totalIncorrect = 0;
+            currentRange -= LEVEL_CHANGE;
+            cout << "You are currently on level " << mathLevel << endl;
+            cout << "Your range is now from 1 to " << currentRange << endl;
+            cout << endl;
+        } // end of if-else
 
         while (true) {
             cout << "Do you want to continue (y=yes || n=no)? " << endl;
@@ -160,14 +160,15 @@ int main() {
             if (userInput == "y" || userInput == "yes" ||
                 userInput == "n" || userInput == "no") {
                 break;
-            } else {
+            }
+            else {
                 cout << "Invalid input, please try again..." << endl;
                 cout << endl;
             }
         }
 
 
-    } while (userInput == "yes" || userInput == "y");
+    } while (userInput == "yes" || userInput == "y"); // end of do-while
 
 
 
@@ -177,11 +178,9 @@ int main() {
 
     cout << endl; // formating white space
     cout << "That's all folks!" << endl; // showing that this code can not check answer
-    cout << "Come back for version three to see what is in store!" << endl; // Showing that there is a version two coming
-    cout << "end of program" << endl; // end of program
+    cout << "Come back for version four to see what is in store!" << endl; // Showing that there is a version two coming
+    cout << "End of program" << endl; // end of program
 
     cout << endl;
     return 0;
 }
-
-
