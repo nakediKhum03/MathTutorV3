@@ -2,7 +2,10 @@
 This is a simple math tutor that gives the user two random numbers and one random math
 symbol and uses those to make a equation to solve. the two random numbers are 1 to 10
 both inclusive, and the four math symbols are +, -, *, and /. And it can also tell the
-user if they are correct or incorrect.
+user if they are correct or incorrect. and lets you continue on to more questions if they
+want. It gives the user three attempts to fix their mistake if wrong. And adds a leveling 
+system to the code so that if you get three correct in a row then it levels you up, vise 
+versa if you get three incorrect in a row.
 
 ## Console Output Example
 ```

@@ -3,10 +3,14 @@
 *Programer(s): Ethan Hoge & Khumo Nakedi UPDATE
 *Date:         10/10/2025 UPDATE DATE
 *Github URL:   UPDATE LINK
-*Description:  UPDATE THE DESCRIPTION A simple math tutor that will eventually turn into a big program to help students with their math
+*Description:  A simple math tutor that will eventually turn into a big program to help students with their math
 *              randomized integer number with math types for the user to solve. The users name is read in the getline
 *              and given either an addition, subtraction, multiplication or division operation problem. The if-else
-*              statement assists for the user for if they get an answer wrong then the correct answer will be displayed.
+*              statement assists for the user for if they get an answer wrong after three separate attempts ,then
+*              the correct answer will be displayed. Then it'll ask if the user wants to continue on to more questions.
+*              If the user gets three right in a row the it'll level them up making the questions harder by making the
+*              max random number +10 the previous. And if hey get 3 incorrect, they'll level down and the max random
+*              number will be -10 unless the level is already the lowest.
 *
 */
 
@@ -119,6 +123,7 @@ int main() {
             } else {
                 cout << "Incorrect sorry :(" << endl;
                 if (i < 2) { // won't show try again after the last attempt
+                    cout << 2 - i << " attempt/s left." << endl;
                     cout << "Try Again" << endl;
                 }
             }
