@@ -65,10 +65,12 @@ y
 
 Incorrect sorry :(
 Try Again
+2 attempt/s left
 7
 
 Incorrect sorry :(
 Try Again
+1 attempt/s left
 6
 
 Incorrect sorry :(
@@ -85,10 +87,12 @@ y
 
 Incorrect sorry :(
 Try Again
+2 attempt/s left
 3
 
 Incorrect sorry :(
 Try Again
+1 attempt/s left
 4
 
 Incorrect sorry :(
@@ -105,10 +109,12 @@ y
 
 Incorrect sorry :(
 Try Again
+2 attempt/s left
 2
 
 Incorrect sorry :(
 Try Again
+1 attempt/s left
 1
 
 Incorrect sorry :(
