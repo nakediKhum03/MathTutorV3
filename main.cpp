@@ -1,8 +1,8 @@
 /*
-* Title:       Math Tutor V3 UPDATE
-*Programer(s): Ethan Hoge & Khumo Nakedi UPDATE
-*Date:         10/10/2025 UPDATE DATE
-*Github URL:   UPDATE LINK
+* Title:       Math Tutor V3
+*Programer(s): Ethan Hoge & Khumo Nakedi
+*Date:         10/10/2025
+*Github URL:   https://github.com/nakediKhum03/MathTutorV3
 *Description:  A simple math tutor that will eventually turn into a big program to help students with their math
 *              randomized integer number with math types for the user to solve. The users name is read in the getline
 *              and given either an addition, subtraction, multiplication or division operation problem. The if-else
@@ -112,7 +112,7 @@ int main() {
             while (!(cin>>userAnswer)) {
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                cout << "\tiInvalid input!" << endl;
+                cout << "\tInvalid input!" << endl;
                 cout << "\tPlease enter a number:" << endl;
             }// end of while loop
 
@@ -135,7 +135,7 @@ int main() {
             cout << endl;
         }
 
-        if (totalCorrect ==3 ) {
+        if (totalCorrect ==3 ) { // Level Up logic
             mathLevel++;
             totalCorrect = 0;
             totalIncorrect = 0;
@@ -144,7 +144,7 @@ int main() {
             cout << "Your new range is now from 1 to " << currentRange << endl;
             cout << endl;
         }
-        else if (totalIncorrect ==3 && mathLevel >1) {
+        else if (totalIncorrect ==3 && mathLevel >1) { // Level Down logic
             mathLevel--;
             totalCorrect = 0;
             totalIncorrect = 0;
@@ -153,6 +153,8 @@ int main() {
             cout << "Your range is now from 1 to " << currentRange << endl;
             cout << endl;
         } // end of if-else
+
+        getline (cin, userInput);
 
         while (true) {
             cout << "Do you want to continue (y=yes || n=no)? " << endl;
@@ -165,12 +167,11 @@ int main() {
             if (userInput == "y" || userInput == "yes" ||
                 userInput == "n" || userInput == "no") {
                 break;
-            }
-            else {
+            } else {
                 cout << "Invalid input, please try again..." << endl;
                 cout << endl;
             }
-        }
+        }// end of while true loop
 
 
     } while (userInput == "yes" || userInput == "y"); // end of do-while
